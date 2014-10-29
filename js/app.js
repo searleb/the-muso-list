@@ -18,23 +18,12 @@ var app = angular.module("theMusoList", ["firebase", "ngRoute", "checklist-model
             controller:'MusoCtrl',
             templateUrl:'add-muso.html'
         })
-        .when('/new', {
-            controller:'TacoCtrl',
-            templateUrl:'order.html'
-        })
-        .when('/confirmation', {
-            controller:'ConfCtrl',
-            templateUrl:'confirmation.html'
-        })
-        .when('/soldout',{
-            templateUrl:'sold-out.html'
-        })
         .otherwise({
             redirectTo:'/'
         });
     })
 
-.controller('MusoCtrl', function($scope, Musos) {
+.controller('MusoCtrl', function($scope, Musos, $window) {
     // sets $scope to Muso fatory of firebase
     $scope.musos = Musos;
 
@@ -67,5 +56,9 @@ var app = angular.module("theMusoList", ["firebase", "ngRoute", "checklist-model
         console.log("addMuso()");
         Musos.$add($scope.muso);
     };
+
+    angular.element($window).bind('orientationchange', function () {
+      alert("orientationchange");
+    });
 
 });
