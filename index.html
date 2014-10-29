@@ -4,91 +4,41 @@
 	<meta charset="UTF-8">
 	<title>The Muso List</title>
 	<!-- AngularJS -->
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular-route.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular-resource.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular-route.min.js"></script>
     <!-- Checklist -->
-    <!-- <script src="js/checklist.js"></script> -->
+    <script src="js/checklist.js"></script>
 
-	<!-- Firebase -->
-	<script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
+    <!-- Firebase -->
+    <script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
 
-	<!-- AngularFire -->
-	<script src='https://cdn.firebase.com/js/client/1.1.1/firebase.js'></script>
-	<script src="https://cdn.firebase.com/libs/angularfire/0.8.2/angularfire.min.js"></script>
-	<script src="https://cdn.firebase.com/js/simple-login/1.6.3/firebase-simple-login.js"></script>
+    <!-- AngularFire -->
+    <script src='https://cdn.firebase.com/js/client/1.1.1/firebase.js'></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/0.8.2/angularfire.min.js"></script>
+    <script src="https://cdn.firebase.com/js/simple-login/1.6.3/firebase-simple-login.js"></script>
 
-	<!-- App.js -->
-	<script src="js/app.js"></script>
+    <!-- App.js -->
+    <script src="js/app.js"></script>
 
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
-<body ng-controller="MusoCtrl">
-	<h1>The Muso List</h1>
+<body ng-controller="MusoCtrl" class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
 
-<!-- 	<input type="text" ng-model="now.text"/>
-	<h1>You said: {{ now.text }}</h1> -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li><a href="/">Home</a></li>
+                <li><a href="/#/add-muso">Add Muso</a></li>
+                <li><a href="/#/add-venue">Add Venue</a></li>
+            </ul>
+            <h1>The Muso List</h1>
+            
+            <div ng-view></div>
 
-
-	<!-- Add new form -->
-<!-- 	<form ng-submit="addMuso(newMusoText)">
-		<input ng-model="newMusoDetails">
-        <input type="text">
-		<button type="submit">Save this Muso!</button>
-	</form> -->
-
-
-
-    <form name="addMusoForm" ng-submit="addMuso()">
-        First Name: <input type="text" name="first-name" ng-model="muso.firstName">
-        {{muso | json}}
-        <br>
-        Last Name: <input type="text" name="last-name" ng-model="muso.lastName">
-        <br>
-        Phone Number: <input type="text" name="phone-number" ng-model="muso.phone">
-        <br>
-        Instruments:
-<!--         <select name="instruments" ng-model="muso.instruments">
-            <option value="keys">Keys</option>
-            <option value="guitar">Guitar</option>
-            <option value="drums">Drums</option>
-        </select> -->
-
-        <label ng-repeat="skill in skills">
-            <input type="checkbox" checklist-model="muso.instruments" checklist-value="skill"> {{skill}}
-        </label>
-        <br>
-        Rating:
-        <select name="rating" ng-model="muso.rating">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
-        <br>
-        <button type="submit" class="btn btn-primary">Save this Muso!</button>
-
-
-<table class="table">
-    <thead>
-    <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Phone</th>
-        <th>Instruments</th>
-        <th>Rating</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr ng-repeat="muso in musos">
-        <td>{{muso.firstName}}</td>
-        <td>{{muso.lastName}}</td>
-        <td>{{muso.phone}}</td>
-        <td>{{muso.instruments}}</td>
-        <td>{{muso.rating}}</td>
-    </tr>
-    </tbody>
-</table>
-
- </body>
- </html>
+        </div>
+    </div>
+</body>
+</html>

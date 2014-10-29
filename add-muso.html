@@ -1,0 +1,42 @@
+<h2>Add a Muso</h2>
+<form name="addMusoForm" ng-submit="addMuso()" role="form">
+    <div class="form-group">
+        <label for="first-name">First Name</label>
+        <input type="text" id="first-name" class="form-control" ng-model="muso.firstName">
+    </div>
+    <div class="form-group">
+        <label for="last-name">Last Name</label>
+        <input type="text" id="last-name" class="form-control" ng-model="muso.lastName">
+    </div>
+    <div class="form-group">
+        <label for="phone-number">Phone Number</label>
+        <input type="text" id="phone-number" class="form-control" ng-model="muso.phone">
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" id="email" class="form-control" ng-model="muso.email">
+    </div>
+    <div class="form-group">
+        <label for="location">Location</label>
+        <input type="text" id="location" class="form-control" ng-model="muso.location">
+    </div>
+    <div class="form-group row">
+        <ul class="list-inline">
+            <li ng-repeat="skill in skills | orderBy:'toString()' | uppercase">
+                <label class="checkbox-inline">{{skill}}</label>
+                <input type="checkbox" checklist-model="muso.instruments"  checklist-value="skill">
+            </li>
+        </ul>
+    </div>
+    <div class="form-group">
+        <label for="rating">Rating</label>
+        <select id="rating" ng-model="muso.rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Save this Muso!</button>
+</form>
