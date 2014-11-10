@@ -1,0 +1,57 @@
+<label for="search">Search</label>
+
+<div class="input-group">
+    <div class="input-group-btn">
+        <button ng-click="search='muso'" ng-class="{active: search == 'muso'}" type="button" class="btn btn-default">Muso</button>
+        <button ng-click="search='venue'" ng-class="{active: search == 'venue'}"type="button" class="btn btn-default">Venue</button>
+    </div><!-- /btn-group -->
+    <input id="search" type="text" class="form-control" ng-model="searchText">
+</div><!-- /input-group -->
+
+<!-- Muso search results -->
+<div ng-show="search == 'muso'">
+    <div class="table-responsive">
+        <table ng-show="searchText" class="table table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Instruments</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="muso in musos | filter:searchText | filter:search">
+                    <td><a ng-click="getMusoDetails(muso.$id)" href="/#/contact-details">{{muso.firstName}} {{muso.lastName}}</a></td>
+                    <td>{{muso.phone}}</td>
+                    <td>
+                        <ul class="list-unstyled">
+                            <li ng-repeat="skill in muso.instruments">{{skill}}</li>
+                        </ul> 
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Venue search results -->
+<div ng-show="search == 'venue'">
+    <div class="table-responsive">
+        <table ng-show="searchText" class="table table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="venue in musos | filter:searchText | filter:search">
+                    <td><a ng-click="getMusoDetails(muso.$id)" href="/#/contact-details">{{venue.name}}</a></td>
+                    <td>{{venue.phone}}</td>
+                    <td>{{venue.address}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

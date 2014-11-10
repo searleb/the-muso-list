@@ -11,21 +11,30 @@ var app = angular.module("theMusoList", ["firebase", "ngRoute", "checklist-model
     .config(function($routeProvider) {
         $routeProvider
         .when('/', {
-            controller:'MusoCtrl',
-            templateUrl:'search.html'
+            templateUrl:'/partials/search.html'
         })
         .when('/add-muso', {
             controller:'MusoCtrl',
-            templateUrl:'add-muso.html'
+            templateUrl:'/partials/add-muso.html'
+        })
+        .when('/contact-details', {
+            templateUrl:'/partials/contact-details.html'
+        })
+        .when('/add-venue', {
+            controller:'VenueCtrl',
+            templateUrl: '/partials/add-venue.html'
         })
         .otherwise({
             redirectTo:'/'
         });
     })
 
-.controller('MusoCtrl', function($scope, Musos, $window) {
+.controller('MusoCtrl', function($scope, Musos) {
     // sets $scope to Muso fatory of firebase
     $scope.musos = Musos;
+    console.log("$scope.musos: ",$scope.musos);
+
+    $scope.search = "muso";
 
     // checkbox list of skills
     $scope.skills = [
@@ -49,16 +58,29 @@ var app = angular.module("theMusoList", ["firebase", "ngRoute", "checklist-model
         "writer",
         "agent",
         "photographer",
-        "camera man"
+        "camera man",
+        "engineer"
     ];
 
     $scope.addMuso = function() {
-        console.log("addMuso()");
+            console.log("addMuso()");
+        $scope.muso.type = "muso";
         Musos.$add($scope.muso);
     };
 
-    angular.element($window).bind('orientationchange', function () {
-      alert("orientationchange");
-    });
+    $scope.getMusoDetails = function(musoId) {
+            console.log("getMusoDetails()");
+        $scope.musoDetails = Musos.$getRecord(musoId);
+            console.log("$scope.musoDetails: ",$scope.musoDetails);
+        $scope.searched = true;
+    };
+
+})
+.controller('VenueCtrl', function($scope, Musos) {
+
+    $scope.addVenue = function() {
+        $scope.venue.type = "venue";
+        Musos.$add($scope.venue);
+    };
 
 });

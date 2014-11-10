@@ -1,0 +1,13 @@
+
+<address>
+  <h2>{{musoDetails.firstName}} {{musoDetails.lastName}}</h2>
+  <p>{{musoDetails.phone}}</p>
+  <a href="mailto:{{musoDetails.email}}">{{musoDetails.email}}</a>
+  <p>{{musoDetails.location}}</p>
+</address>
+<ul>
+	<li ng-repeat="instrument in musoDetails.instruments">{{instrument}}</li>
+</ul>
+<p>{{musoDetails.rating}}</p>
+<p>{{musoDetails.notes}}</p>
+
