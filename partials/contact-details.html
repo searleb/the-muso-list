@@ -1,13 +1,41 @@
 
-<address>
-  <h2>{{musoDetails.firstName}} {{musoDetails.lastName}}</h2>
-  <p>{{musoDetails.phone}}</p>
-  <a href="mailto:{{musoDetails.email}}">{{musoDetails.email}}</a>
-  <p>{{musoDetails.location}}</p>
+<section ng-show="musoDetails.type == 'muso'">
+    <div class="search-result-card">
+        <h3>{{musoDetails.firstName}} {{musoDetails.lastName}}</h3>
+        <h4><span class="glyphicon glyphicon-phone"></span>&nbsp;{{musoDetails.phone}}</h4>
+        <h5><span class="glyphicon glyphicon-send"></span><a href="mailto:{{musoDetails.email}}">&nbsp;{{musoDetails.email}}</a></h5>
+        <h5><span class="glyphicon glyphicon-globe"></span>&nbsp;{{musoDetails.location}}</h5>
+        <ul class="list-unstyled list-inline">
+            <li><span class="glyphicon glyphicon-music"></span></li>
+            <li ng-repeat="skill in musoDetails.instruments"> {{skill}}&nbsp;/</li>
+        </ul>
+        <h5>{{musoDetails.rating}}</h5>
+        <h5>{{musoDetails.notes}}</h5>
+    </div>
+</section>
+
+
+
+<!-- <address ng-show="musoDetails.type == 'muso'">
+<h1>muso details</h1>
+	<h2>{{musoDetails.firstName}} {{musoDetails.lastName}}</h2>
+	<p>{{musoDetails.phone}}</p>
+	<a href="mailto:{{musoDetails.email}}">{{musoDetails.email}}</a>
+	<p>{{musoDetails.location}}</p>
+	<ul>
+		<li ng-repeat="instrument in musoDetails.instruments">{{instrument}}</li>
+	</ul>
+	<p>{{musoDetails.rating}}</p>
+	<p>{{musoDetails.notes}}</p>
 </address>
-<ul>
-	<li ng-repeat="instrument in musoDetails.instruments">{{instrument}}</li>
-</ul>
-<p>{{musoDetails.rating}}</p>
-<p>{{musoDetails.notes}}</p>
+
+
+<address ng-show="venueDetails.type == 'venue'">
+<h1>venue details</h1>
+	<h2>{{venueDetails.name}}</h2>
+	<p>{{venueDetails.phone}}</p>
+	<a href="mailto:{{venueDetails.email}}">{{venueDetails.email}}</a>
+	<p>{{venueDetails.address}}</p>
+	<p>{{venueDetails.website}}</p>
+</address> -->
 

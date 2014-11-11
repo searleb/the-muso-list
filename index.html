@@ -21,23 +21,32 @@
     <!-- App.js -->
     <script src="js/app.js"></script>
 
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link href="css/material-wfont.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
-<body ng-controller="MusoCtrl" class="container-fluid">
-    <div class="row">
-        <div class="col-md-12">
+<body ng-controller="MusoCtrl">
+    <div class="title">
+        <h1>The Muso List</h1>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                
 
-            <ul class="nav nav-tabs" role="tablist">
-                <li><a href="/#/">Home</a></li>
-                <li><a href="/#/add-muso">Add Muso</a></li>
-                <li><a href="/#/add-venue">Add Venue</a></li>
-            </ul>
-            <h3>The Muso List</h3>
-            
-            <div ng-view></div>
+                <div ng-view></div>
 
+<!--                 <ul class="nav nav-tabs" role="tablist">
+                    <li><a href="/#/">Home</a></li>
+                    <li><a href="/#/add-muso">Add Muso</a></li>
+                    <li><a href="/#/add-venue">Add Venue</a></li>
+                </ul> -->
+                
+
+            </div>
         </div>
     </div>
 </body>

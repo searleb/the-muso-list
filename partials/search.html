@@ -1,4 +1,3 @@
-<label for="search">Search</label>
 
 <div class="input-group">
     <div class="input-group-btn">
@@ -9,33 +8,19 @@
 </div><!-- /input-group -->
 
 <!-- Muso search results -->
-<div ng-show="search == 'muso'">
-    <div class="table-responsive">
-        <table ng-show="searchText" class="table table-striped table-condensed">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Phone</th>
-                    <th>Instruments</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="muso in musos | filter:searchText | filter:search">
-                    <td><a ng-click="getMusoDetails(muso.$id)" href="/#/contact-details">{{muso.firstName}} {{muso.lastName}}</a></td>
-                    <td>{{muso.phone}}</td>
-                    <td>
-                        <ul class="list-unstyled">
-                            <li ng-repeat="skill in muso.instruments">{{skill}}</li>
-                        </ul> 
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+<section ng-show="search == 'muso'">
+    <div class="search-result-card" ng-show="searchText" ng-repeat="muso in musos | filter:searchText | filter:search">
+        <h3><a ng-click="getMusoDetails(muso.$id)" href="/#/contact-details">{{muso.firstName}} {{muso.lastName}}</a></h3>
+        <h4><span class="glyphicon glyphicon-phone"></span> &nbsp; {{muso.phone}}</h4>
+        <ul class="list-unstyled list-inline">
+            <li><span class="glyphicon glyphicon-music"></span></li>
+            <li ng-repeat="skill in muso.instruments"> {{skill}} &nbsp; /</li>
+        </ul>
     </div>
-</div>
+</section>
 
 <!-- Venue search results -->
-<div ng-show="search == 'venue'">
+<!-- <div ng-show="search == 'venue'">
     <div class="table-responsive">
         <table ng-show="searchText" class="table table-striped table-condensed">
             <thead>
@@ -47,11 +32,21 @@
             </thead>
             <tbody>
                 <tr ng-repeat="venue in musos | filter:searchText | filter:search">
-                    <td><a ng-click="getMusoDetails(muso.$id)" href="/#/contact-details">{{venue.name}}</a></td>
+                    <td><a ng-click="getVenueDetails(venue.$id)" href="/#/contact-details">{{venue.name}}</a></td>
                     <td>{{venue.phone}}</td>
                     <td>{{venue.address}}</td>
                 </tr>
             </tbody>
         </table>
     </div>
-</div>
+</div> -->
+
+
+<!-- Venue search results -->
+<section ng-show="search == 'venue'">
+    <div class="search-result-card" ng-show="searchText" ng-repeat="venue in musos | filter:searchText | filter:search">
+        <h3><a ng-click="getVenueDetails(venue.$id)" href="/#/contact-details">{{venue.name}}</a></h3>
+        <h4><span class="glyphicon glyphicon-phone"></span> &nbsp; {{venue.phone}}</h4>
+        <h4><span class="glyphicon glyphicon-globe"></span> &nbsp; {{venue.address}}</h4>
+    </div>
+</section>

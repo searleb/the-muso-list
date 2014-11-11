@@ -14,15 +14,16 @@ var app = angular.module("theMusoList", ["firebase", "ngRoute", "checklist-model
             templateUrl:'/partials/search.html'
         })
         .when('/add-muso', {
-            controller:'MusoCtrl',
             templateUrl:'/partials/add-muso.html'
         })
         .when('/contact-details', {
             templateUrl:'/partials/contact-details.html'
         })
         .when('/add-venue', {
-            controller:'VenueCtrl',
             templateUrl: '/partials/add-venue.html'
+        })
+        .when('/venue-details', {
+            templateUrl: '/partials/venue-details.html'
         })
         .otherwise({
             redirectTo:'/'
@@ -33,6 +34,8 @@ var app = angular.module("theMusoList", ["firebase", "ngRoute", "checklist-model
     // sets $scope to Muso fatory of firebase
     $scope.musos = Musos;
     console.log("$scope.musos: ",$scope.musos);
+    $scope.muso = {};
+    $scope.venue = {};
 
     $scope.search = "muso";
 
@@ -69,18 +72,34 @@ var app = angular.module("theMusoList", ["firebase", "ngRoute", "checklist-model
     };
 
     $scope.getMusoDetails = function(musoId) {
-            console.log("getMusoDetails()");
+            // console.log("getMusoDetails()");
+        $scope.venueDetails = {};
         $scope.musoDetails = Musos.$getRecord(musoId);
-            console.log("$scope.musoDetails: ",$scope.musoDetails);
+            // console.log("$scope.musoDetails: ",$scope.musoDetails);
         $scope.searched = true;
     };
 
-})
-.controller('VenueCtrl', function($scope, Musos) {
+    $scope.getVenueDetails = function(venueId) {
+            // console.log("id: ", venueId);
+            // console.log("getVenueDetails()");
+        $scope.musoDetails = {};
+        $scope.venueDetails = Musos.$getRecord(venueId);
+            // console.log("$scope.venueDetails: ",$scope.venueDetails);
+        $scope.searched = true;
+    };
 
-    $scope.addVenue = function() {
+        $scope.addVenue = function() {
         $scope.venue.type = "venue";
         Musos.$add($scope.venue);
     };
 
-});
+})
+// .controller('VenueCtrl', function($scope, Musos) {
+
+//     $scope.addVenue = function() {
+//         $scope.venue.type = "venue";
+//         Musos.$add($scope.venue);
+//     };
+
+
+// });

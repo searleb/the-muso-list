@@ -1,0 +1,18 @@
+<section ng-controller="VenueCtrl">
+	
+<h1>Venue Deets</h1>
+{{musoDeatils | json}}
+{{venueDetails | json}}
+<address>
+  <h2>{{venueDetails.name}}</h2>
+  <p>{{venueDetails.phone}}</p>
+  <a href="mailto:{{venueDetails.email}}">{{venueDetails.email}}</a>
+  <p>{{venueDetails.address}}</p>
+</address>
+<p>{{venueDetails.website}}</p>
+
+
+
+
+
+</section>
