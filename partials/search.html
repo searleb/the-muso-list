@@ -20,32 +20,9 @@
 </section>
 
 <!-- Venue search results -->
-<!-- <div ng-show="search == 'venue'">
-    <div class="table-responsive">
-        <table ng-show="searchText" class="table table-striped table-condensed">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Phone</th>
-                    <th>Address</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="venue in musos | filter:searchText | filter:search">
-                    <td><a ng-click="getVenueDetails(venue.$id)" href="/#/contact-details">{{venue.name}}</a></td>
-                    <td>{{venue.phone}}</td>
-                    <td>{{venue.address}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div> -->
-
-
-<!-- Venue search results -->
 <section ng-show="search == 'venue'">
     <div class="search-result-card" ng-show="searchText" ng-repeat="venue in musos | filter:searchText | filter:search">
-        <h3><a ng-click="getVenueDetails(venue.$id)" href="/#/contact-details">{{venue.name}}</a></h3>
+        <h3><a ng-click="getVenueDetails(venue.$id)" href="/#/venue-details">{{venue.name}}</a></h3>
         <h4><span class="glyphicon glyphicon-phone"></span> &nbsp; {{venue.phone}}</h4>
         <h4><span class="glyphicon glyphicon-globe"></span> &nbsp; {{venue.address}}</h4>
     </div>

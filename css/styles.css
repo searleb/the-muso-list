@@ -3,6 +3,10 @@ body{
 	background-color: #F9F9F9; 
 }
 
+h1{
+	margin: 0px
+}
+
 h3{
 	margin-top: 10px;
 }
@@ -14,7 +18,7 @@ h3{
 
 .title{
 	height: 100px;
-	background-color: #2196F3;
+	background-color: #2146F6;
 	color: #FFF;
 }
 
@@ -25,4 +29,8 @@ h3{
 	margin-top: 8px;
 	margin-bottom: 8px;
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+#search{
+	height: 50px;
 }

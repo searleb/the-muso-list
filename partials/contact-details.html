@@ -1,5 +1,5 @@
 
-<section ng-show="musoDetails.type == 'muso'">
+<section>
     <div class="search-result-card">
         <h3>{{musoDetails.firstName}} {{musoDetails.lastName}}</h3>
         <h4><span class="glyphicon glyphicon-phone"></span>&nbsp;{{musoDetails.phone}}</h4>
@@ -7,35 +7,74 @@
         <h5><span class="glyphicon glyphicon-globe"></span>&nbsp;{{musoDetails.location}}</h5>
         <ul class="list-unstyled list-inline">
             <li><span class="glyphicon glyphicon-music"></span></li>
-            <li ng-repeat="skill in musoDetails.instruments"> {{skill}}&nbsp;/</li>
+            <li ng-repeat="skill in musoDetails.instruments"> {{skill}}&nbsp; &#8226;</li>
         </ul>
         <h5>{{musoDetails.rating}}</h5>
-        <h5>{{musoDetails.notes}}</h5>
+        <p><span class="glyphicon glyphicon-pencil"></span>{{musoDetails.notes}}</p>
     </div>
+    <button ng-click="edit='true'" class="btn btn-primary btn-block">Edit this Muso!</button>
+</section>
+
+
+<section ng-show="edit == 'true'">
+    <h2>Edit a Muso</h2>
+    <form name="addMusoForm" role="form">
+        <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" class="form-control" ng-model="musoDetails.firstName" value="musoDetails.firstName">
+        </div>
+        <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" class="form-control" ng-model="musoDetails.lastName" value="musoDetails.lastName">
+        </div>
+        <div class="form-group">
+            <label for="phone-number">Phone Number</label>
+            <input type="text" id="phone-number" class="form-control" ng-model="musoDetails.phone" value="musoDetails.phone">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" class="form-control" ng-model="musoDetails.email" value="musoDetails.email">
+        </div>
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" id="location" class="form-control" ng-model="musoDetails.location" value="musoDetails.location">
+        </div>
+        <div class="form-group row">
+            <ul class="list-inline">
+                <li ng-repeat="skill in skills | orderBy:'toString()' | uppercase">
+                    <label class="checkbox-inline">{{skill}}</label>
+                    <input type="checkbox" checklist-model="musoDetails.instruments" checklist-value="skill">
+                </li>
+            </ul>
+        </div>
+        <div class="form-group">
+            <label for="rating">Rating</label>
+            <label class="radio-inline">
+                <input ng-model="musoDetails.rating" type="radio" name="rating" id="inlineRadio1" value="1"> 1
+            </label>
+            <label class="radio-inline">
+                <input ng-model="musoDetails.rating" type="radio" name="rating" id="inlineRadio2" value="2"> 2
+            </label>
+            <label class="radio-inline">
+                <input ng-model="musoDetails.rating" type="radio" name="rating" id="inlineRadio3" value="3"> 3
+            </label>
+            <label class="radio-inline">
+                <input ng-model="musoDetails.rating" type="radio" name="rating" id="inlineRadio4" value="4"> 4
+            </label>
+            <label class="radio-inline">
+                <input ng-model="musoDetails.rating" type="radio" name="rating" id="inlineRadio5" value="5"> 5
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="notes">Notes / Tags</label>
+            <input type="text" id="notes" class="form-control" ng-model="musoDetails.notes">
+        </div>
+        <button ng-click="editMuso(); muso=''" type="submit" class="btn btn-primary btn-block">Save Changes</button>
+        <button ng-click="deleteMuso();" class="btn btn-warning btn-block">Delete this Muso!</button>
+    </form>
 </section>
 
 
 
-<!-- <address ng-show="musoDetails.type == 'muso'">
-<h1>muso details</h1>
-	<h2>{{musoDetails.firstName}} {{musoDetails.lastName}}</h2>
-	<p>{{musoDetails.phone}}</p>
-	<a href="mailto:{{musoDetails.email}}">{{musoDetails.email}}</a>
-	<p>{{musoDetails.location}}</p>
-	<ul>
-		<li ng-repeat="instrument in musoDetails.instruments">{{instrument}}</li>
-	</ul>
-	<p>{{musoDetails.rating}}</p>
-	<p>{{musoDetails.notes}}</p>
-</address>
 
-
-<address ng-show="venueDetails.type == 'venue'">
-<h1>venue details</h1>
-	<h2>{{venueDetails.name}}</h2>
-	<p>{{venueDetails.phone}}</p>
-	<a href="mailto:{{venueDetails.email}}">{{venueDetails.email}}</a>
-	<p>{{venueDetails.address}}</p>
-	<p>{{venueDetails.website}}</p>
-</address> -->
 

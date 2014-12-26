@@ -1,18 +1,46 @@
-<section ng-controller="VenueCtrl">
-	
-<h1>Venue Deets</h1>
-{{musoDeatils | json}}
-{{venueDetails | json}}
-<address>
-  <h2>{{venueDetails.name}}</h2>
-  <p>{{venueDetails.phone}}</p>
-  <a href="mailto:{{venueDetails.email}}">{{venueDetails.email}}</a>
-  <p>{{venueDetails.address}}</p>
-</address>
-<p>{{venueDetails.website}}</p>
-
-
-
-
-
+<section>
+	<div class="search-result-card">
+		<address>
+		  	<h3>{{venueDetails.name}}</h3>
+		  	<h4><span class="glyphicon glyphicon-phone"></span>&nbsp;{{venueDetails.phone}}</h4>
+		  	<h5><span class="glyphicon glyphicon-send"></span><a href="mailto:{{venueDetails.email}}">{{venueDetails.email}}</a></h5>
+		 	<h5><span class="glyphicon glyphicon-globe"></span>&nbsp;{{venueDetails.address}}</h5>
+			<h5><span class="glyphicon glyphicon-home"></span>{{venueDetails.website}}</h5>
+		</address>
+	</div>
+		<button ng-click="edit='true'" class="btn btn-primary btn-block">Edit this Venue</button>
 </section>
+
+
+<section ng-show="edit == 'true'">
+    <h2>Edit this Venue</h2>
+    <form name="addVenueForm" role="form">
+        <div class="form-group">
+            <label for="first-name">Name</label>
+            <input type="text" id="name" class="form-control" ng-model="venueDetails.name" value="venueDetails.name">
+        </div>
+        <div class="form-group">
+            <label for="last-name">Address</label>
+            <input type="text" id="venue-address" class="form-control" ng-model="venueDetails.address" value="venueDetails.address">
+        </div>
+        <div class="form-group">
+            <label for="phone-number">Phone Number</label>
+            <input type="text" id="venue-phone-number" class="form-control" ng-model="venueDetails.phone" value="venueDetails.phone">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" class="form-control" ng-model="venueDetails.email" value="venueDetails.email">
+        </div>
+        <div class="form-group">
+            <label for="location">Website</label>
+            <input type="text" id="website" class="form-control" ng-model="venueDetails.website" value="venueDetails.website">
+        </div>
+        <button ng-click="editVenue(); venue=''" type="submit" class="btn btn-primary btn-block">Save changes</button>
+        <button ng-click="deleteVenue();" class="btn btn-warning btn-block">Delete this Venue!</button>
+    </form>
+</section>
+
+
+
+
+

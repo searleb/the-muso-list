@@ -30,7 +30,7 @@ var app = angular.module("theMusoList", ["firebase", "ngRoute", "checklist-model
         });
     })
 
-.controller('MusoCtrl', function($scope, Musos) {
+.controller('MusoCtrl', function($scope, Musos, $location) {
     // sets $scope to Muso fatory of firebase
     $scope.musos = Musos;
     console.log("$scope.musos: ",$scope.musos);
@@ -38,6 +38,7 @@ var app = angular.module("theMusoList", ["firebase", "ngRoute", "checklist-model
     $scope.venue = {};
 
     $scope.search = "muso";
+    $scope.edit = "";
 
     // checkbox list of skills
     $scope.skills = [
@@ -66,7 +67,7 @@ var app = angular.module("theMusoList", ["firebase", "ngRoute", "checklist-model
     ];
 
     $scope.addMuso = function() {
-            console.log("addMuso()");
+            // console.log("addMuso()");
         $scope.muso.type = "muso";
         Musos.$add($scope.muso);
     };
@@ -79,6 +80,24 @@ var app = angular.module("theMusoList", ["firebase", "ngRoute", "checklist-model
         $scope.searched = true;
     };
 
+    $scope.editMuso = function() {
+        Musos.$save($scope.musoDetails).then(function(ref) {
+          alert("Muso updated");
+          $location.path('/');
+        }, function(error) {
+          alert("Sorry there was an error:", error);
+        });
+    };
+
+    $scope.deleteMuso = function() {
+        Musos.$remove($scope.musoDetails).then(function(ref) {
+          alert("Muso deleted");
+          $location.path('/');
+        }, function(error) {
+          alert("Sorry there was an error:", error);
+        });
+    };
+
     $scope.getVenueDetails = function(venueId) {
             // console.log("id: ", venueId);
             // console.log("getVenueDetails()");
@@ -88,18 +107,37 @@ var app = angular.module("theMusoList", ["firebase", "ngRoute", "checklist-model
         $scope.searched = true;
     };
 
-        $scope.addVenue = function() {
+    $scope.editVenue = function() {
+        Musos.$save($scope.venueDetails).then(function(ref) {
+          alert("Venue updated");
+          $location.path('/');
+        }, function(error) {
+          alert("Sorry there was an error:", error);
+        });
+    };
+
+    $scope.deleteVenue = function() {
+        Musos.$remove($scope.venueDetails).then(function(ref) {
+          alert("Venue deleted");
+          $location.path('/');
+        }, function(error) {
+          alert("Sorry there was an error:", error);
+        });
+    };
+
+    $scope.addVenue = function() {
         $scope.venue.type = "venue";
         Musos.$add($scope.venue);
     };
 
 })
-// .controller('VenueCtrl', function($scope, Musos) {
 
-//     $scope.addVenue = function() {
-//         $scope.venue.type = "venue";
-//         Musos.$add($scope.venue);
-//     };
+  .controller('EditMuso', function ($scope, $location, $routeParams, $firebase, fbURL) {
+    var personURL = new Firebase(fbURL + $routeParams.id);
+    $scope.person = $firebase(personURL).$asObject();
 
-
-// });
+    $scope.edit = function() {
+      $scope.person.$save();
+      $location.path('/');
+    }
+  });

@@ -23,31 +23,30 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
-    <link href="css/material-wfont.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.1.6/css/material-wfont.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.1.6/css/material.min.css"> -->
     <link href="css/styles.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
 <body ng-controller="MusoCtrl">
     <div class="title">
-        <h1>The Muso List</h1>
+        <a href="/#"><h1>The Muso List</h1></a>
     </div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 
-
-                <div ng-view></div>
-
-<!--                 <ul class="nav nav-tabs" role="tablist">
-                    <li><a href="/#/">Home</a></li>
-                    <li><a href="/#/add-muso">Add Muso</a></li>
-                    <li><a href="/#/add-venue">Add Venue</a></li>
-                </ul> -->
-                
+                <div ng-view></div>                
 
             </div>
         </div>
     </div>
+<span>
+    <a href="/#/add-muso" class="btn btn-danger btn-fab btn-raised mdi-social-group-add"></a>
+    <a href="/#/add-venue" class="btn btn-danger btn-fab btn-raised mdi-social-location-city"></a>
+</span>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.1.6/js/material.min.js"></script> -->
 </body>
 </html>
