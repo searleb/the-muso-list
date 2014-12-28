@@ -6,7 +6,7 @@
         <h5><span class="glyphicon glyphicon-send"></span><a href="mailto:{{musoDetails.email}}">&nbsp;{{musoDetails.email}}</a></h5>
         <h5><span class="glyphicon glyphicon-globe"></span>&nbsp;{{musoDetails.location}}</h5>
         <ul class="list-unstyled list-inline">
-            <li><span class="glyphicon glyphicon-music"></span></li>
+            <li><h5><span class="glyphicon glyphicon-music"></span></h5></li>
             <li ng-repeat="skill in musoDetails.instruments"> {{skill}}&nbsp; &#8226;</li>
         </ul>
         <h5>{{musoDetails.rating}}</h5>
@@ -70,7 +70,7 @@
             <input type="text" id="notes" class="form-control" ng-model="musoDetails.notes">
         </div>
         <button ng-click="editMuso(); muso=''" type="submit" class="btn btn-primary btn-block">Save Changes</button>
-        <button ng-click="deleteMuso();" class="btn btn-warning btn-block">Delete this Muso!</button>
+        <button ng-click="deleteMuso();" class="btn btn-danger btn-block">Delete this Muso</button>
     </form>
 </section>
 

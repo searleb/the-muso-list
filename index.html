@@ -3,6 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>The Muso List</title>
+    <!-- Font -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
 	<!-- AngularJS -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular-resource.min.js"></script>
@@ -23,7 +25,7 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.1.6/css/material-wfont.min.css" rel="stylesheet">
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.1.6/css/material-wfont.min.css" rel="stylesheet"> -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.1.6/css/material.min.css"> -->
     <link href="css/styles.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,17 +37,13 @@
     </div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-xs-12">
                 
                 <div ng-view></div>                
-
+                
             </div>
         </div>
     </div>
-<span>
-    <a href="/#/add-muso" class="btn btn-danger btn-fab btn-raised mdi-social-group-add"></a>
-    <a href="/#/add-venue" class="btn btn-danger btn-fab btn-raised mdi-social-location-city"></a>
-</span>
 
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.1.6/js/material.min.js"></script> -->
 </body>
