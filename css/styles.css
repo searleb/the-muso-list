@@ -1,6 +1,8 @@
 body{
 	margin: 0;
 	background-color: #F9F9F9; 
+	font-family: 'Open Sans', sans-serif;
+	padding-bottom: 15px;
 }
 
 h1{
@@ -12,13 +14,13 @@ h3{
 }
 
 .container-full {
-  margin: 0 auto;
-  width: 100%;
+	margin: 0 auto;
+	width: 100%;
 }
 
 .title{
-	height: 100px;
-	background-color: #2146F6;
+	height: 90px;
+	/*background-color: #2146F6;*/
 	color: #FFF;
 }
 
@@ -33,4 +35,17 @@ h3{
 
 #search{
 	height: 50px;
+}
+
+.btn-half{
+	display: inline-block;
+	width: 49.4%;
+}
+
+.add-btns{
+	margin-top: 20px;
+}
+
+.glyphicon{
+	margin-right: 8px;
 }

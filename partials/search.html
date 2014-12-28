@@ -1,11 +1,17 @@
+<form class="form-inline">
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-addon">
+                <button ng-click="search='muso'" ng-class="{active: search == 'muso'}" type="button" class="btn btn-primary">Muso</button>
+            </div>
+                <input id="search" type="text" class="form-control" ng-model="searchText">
+            <div class="input-group-addon">
+                <button ng-click="search='venue'" ng-class="{active: search == 'venue'}"type="button" class="btn btn-primary">Venue</button>
+            </div>
+        </div>
+    </div>
+</form>
 
-<div class="input-group">
-    <div class="input-group-btn">
-        <button ng-click="search='muso'" ng-class="{active: search == 'muso'}" type="button" class="btn btn-default">Muso</button>
-        <button ng-click="search='venue'" ng-class="{active: search == 'venue'}"type="button" class="btn btn-default">Venue</button>
-    </div><!-- /btn-group -->
-    <input id="search" type="text" class="form-control" ng-model="searchText">
-</div><!-- /input-group -->
 
 <!-- Muso search results -->
 <section ng-show="search == 'muso'">
@@ -14,7 +20,7 @@
         <h4><span class="glyphicon glyphicon-phone"></span> &nbsp; {{muso.phone}}</h4>
         <ul class="list-unstyled list-inline">
             <li><span class="glyphicon glyphicon-music"></span></li>
-            <li ng-repeat="skill in muso.instruments"> {{skill}} &nbsp; /</li>
+            <li ng-repeat="skill in muso.instruments"> {{skill}} &nbsp; &#8226;</li>
         </ul>
     </div>
 </section>
@@ -27,3 +33,8 @@
         <h4><span class="glyphicon glyphicon-globe"></span> &nbsp; {{venue.address}}</h4>
     </div>
 </section>
+
+<div class="add-btns">
+    <a href="/#/add-muso" class="btn btn-danger">Add a Muso</a>
+    <a href="/#/add-venue" class="btn btn-danger pull-right">Add a Venue</a>
+</div>
