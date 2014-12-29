@@ -11,7 +11,7 @@ var app = angular.module("theMusoList", ["firebase", "ngRoute", "checklist-model
     .config(function($routeProvider) {
         $routeProvider
         .when('/', {
-            templateUrl:'/partials/search.html'
+            templateUrl:'/the-muso-list/partials/search.html'
         })
         .when('/add-muso', {
             templateUrl:'/the-muso-list/partials/add-muso.html'
