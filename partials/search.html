@@ -16,7 +16,7 @@
 <!-- Muso search results -->
 <section ng-show="search == 'muso'">
     <div class="search-result-card" ng-show="searchText" ng-repeat="muso in musos | filter:searchText | filter:search">
-        <h3><a ng-click="getMusoDetails(muso.$id)" href="/#/contact-details">{{muso.firstName}} {{muso.lastName}}</a></h3>
+        <h3><a ng-click="getMusoDetails(muso.$id)" href="/the-muso-list/#/contact-details">{{muso.firstName}} {{muso.lastName}}</a></h3>
         <h4><span class="glyphicon glyphicon-phone"></span> &nbsp; {{muso.phone}}</h4>
         <ul class="list-unstyled list-inline">
             <li><span class="glyphicon glyphicon-music"></span></li>
@@ -28,7 +28,7 @@
 <!-- Venue search results -->
 <section ng-show="search == 'venue'">
     <div class="search-result-card" ng-show="searchText" ng-repeat="venue in musos | filter:searchText | filter:search">
-        <h3><a ng-click="getVenueDetails(venue.$id)" href="/#/venue-details">{{venue.name}}</a></h3>
+        <h3><a ng-click="getVenueDetails(venue.$id)" href="/the-muso-list/#/venue-details">{{venue.name}}</a></h3>
         <h4><span class="glyphicon glyphicon-phone"></span> &nbsp; {{venue.phone}}</h4>
         <h4><span class="glyphicon glyphicon-globe"></span> &nbsp; {{venue.address}}</h4>
     </div>
