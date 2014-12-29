@@ -14,16 +14,16 @@ var app = angular.module("theMusoList", ["firebase", "ngRoute", "checklist-model
             templateUrl:'/partials/search.html'
         })
         .when('/add-muso', {
-            templateUrl:'/partials/add-muso.html'
+            templateUrl:'/the-muso-list/partials/add-muso.html'
         })
         .when('/contact-details', {
-            templateUrl:'/partials/contact-details.html'
+            templateUrl:'/the-muso-list/partials/contact-details.html'
         })
         .when('/add-venue', {
-            templateUrl: '/partials/add-venue.html'
+            templateUrl: '/the-muso-list/partials/add-venue.html'
         })
         .when('/venue-details', {
-            templateUrl: '/partials/venue-details.html'
+            templateUrl: '/the-muso-list/partials/venue-details.html'
         })
         .otherwise({
             redirectTo:'/'
