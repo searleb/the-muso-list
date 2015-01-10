@@ -70,6 +70,7 @@ var app = angular.module("theMusoList", ["firebase", "ngRoute", "checklist-model
             // console.log("addMuso()");
         $scope.muso.type = "muso";
         Musos.$add($scope.muso);
+        $scope.muso = {};
     };
 
     $scope.getMusoDetails = function(musoId) {
@@ -128,6 +129,7 @@ var app = angular.module("theMusoList", ["firebase", "ngRoute", "checklist-model
     $scope.addVenue = function() {
         $scope.venue.type = "venue";
         Musos.$add($scope.venue);
+        $scope.venue = {};
     };
 
 })
