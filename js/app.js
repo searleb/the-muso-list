@@ -130,7 +130,7 @@ var app = angular.module("theMusoList", ["firebase", "ngRoute", "checklist-model
         $scope.venue.type = "venue";
         Musos.$add($scope.venue).then(function(ref) {
             alert("Muso saved");
-            $scope.venue.$destory();
+            $scope.venue.$destroy();
             console.log($scope.venue);        
         }, function(error) {
           alert("Sorry there was an error:", error);
