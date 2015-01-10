@@ -31,7 +31,7 @@ var app = angular.module("theMusoList", ["firebase", "ngRoute", "checklist-model
     })
 
 .controller('MusoCtrl', function($scope, Musos, $location) {
-    // sets $scope to Muso fatory of firebase
+    // sets $scope to Muso factory of firebase
     $scope.musos = Musos;
     console.log("$scope.musos: ",$scope.musos);
     $scope.muso = {};
@@ -110,8 +110,8 @@ var app = angular.module("theMusoList", ["firebase", "ngRoute", "checklist-model
 
     $scope.editVenue = function() {
         Musos.$save($scope.venueDetails).then(function(ref) {
-          alert("Venue updated");
-          $location.path('/');
+            alert("Venue updated");
+            $location.path('/');
         }, function(error) {
           alert("Sorry there was an error:", error);
         });
@@ -128,8 +128,13 @@ var app = angular.module("theMusoList", ["firebase", "ngRoute", "checklist-model
 
     $scope.addVenue = function() {
         $scope.venue.type = "venue";
-        Musos.$add($scope.venue);
-        $scope.venue = {};
+        Musos.$add($scope.venue).then(function(ref) {
+            alert("Muso saved");
+            $scope.venue.$destory();
+            console.log($scope.venue);        
+        }, function(error) {
+          alert("Sorry there was an error:", error);
+        });
     };
 
 })
